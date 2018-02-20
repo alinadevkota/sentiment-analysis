@@ -1,0 +1,57 @@
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="First Name" [(ngModel)]="User.fname" name="fname">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Last Name" [(ngModel)]="User.lname" name="lname">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Account Name" [(ngModel)]="User.accountName" name="accountNname">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Password" [(ngModel)]="User.password" name="password">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Retype Passwprd" [(ngModel)]="User.rpassword" name="rpassword">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose birth date"  [(ngModel)]="User.dob" name="dob">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <p>Gender</p>
+  <mat-radio-group>
+    <mat-radio-button value="1">Male</mat-radio-button>
+    <mat-radio-button value="2">Female</mat-radio-button>
+    <mat-radio-button value="3">Others</mat-radio-button>
+  </mat-radio-group>
+  <mat-checkbox>I am not a Robot</mat-checkbox>
+  <mat-button-toggle (click)="submit()">SignUp</mat-button-toggle>
+  
+
+
+  <!-- <mat-form-field>
+    <textarea matInput placeholder="Textarea"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select">
+      <!-- <mat-option value="option">Option</mat-option> -->
+    <!-- </mat-select>
+  </mat-form-field> --> 
+</div>
+
+<mat-list>
+	<mat-list-item *ngFor="let User of users; let i=index">
+		
+		<h3 matLine> {{User.accountName}} </h3>
+		<p matLine>
+			<span> {{User.fname}} {{User.lname}} </span>
+			<span class="demo-2"> {{User.gender}} </span>
+
+		</p>
+		<p matLine>
+			<button mat-raised-button (click)="remove(i)">Remove</button>
+		</p>
+	</mat-list-item>
+</mat-list>
